@@ -6,14 +6,16 @@ pipeline {
         stage('Build') {
             // TODO: Create artifacts
             steps {
-
+                    echo 'Building..'
             }
         }
+        
         stage('Test') {
             steps {
                 echo 'Testing..'
             }
         }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
@@ -41,9 +43,7 @@ pipeline {
                 PGPASSWORD=p@ssw0rd42
                 PGPORT=5432" > .env
                 '''
-                
-                echo 'Building..'
-                
+                                
                 sh 'sudo apt-get install -y nodejs'
                 sh 'sudo apt install -y npm'
                 sh 'npm install'
