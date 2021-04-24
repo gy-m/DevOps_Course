@@ -2,15 +2,23 @@ pipeline {
     agent {label "slave_build"}
 
     stages {
-        stage('Downlod_to_BlubStorage') {
+
+        stage('Build') {
+            // TODO: Create artifacts
             steps {
-                // TODO - understanding how to save
-                echo 'Downloding to Blub storage'
+
             }
         }
-        stage('Build') {
+        stage('Test') {
             steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
                 
+                // TODO - to be Fixed (must cereate new VM linux)
                 echo 'creating .env file'
                 
                 sh '''
@@ -44,16 +52,6 @@ pipeline {
                 
                 echo 'Finished building process'
                 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
             }
         }
     }
