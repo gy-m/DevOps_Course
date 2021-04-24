@@ -33,10 +33,7 @@ pipeline {
                 PGPASSWORD=p@ssw0rd42
                 PGPORT=5432" > .env
                 '''
-            }
-            
-            
-            steps {                
+                
                 echo 'Building..'
                 
                 sh 'sudo apt-get install -y nodejs'
