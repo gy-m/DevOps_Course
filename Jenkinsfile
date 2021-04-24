@@ -13,6 +13,7 @@ pipeline {
                 
                 echo 'creating .env file'
                 
+                echo "
                 # Host configuration
                 PORT=8080
                 HOST=0.0.0.0
@@ -30,7 +31,7 @@ pipeline {
                 PGUSERNAME=postgres
                 PGDATABASE=postgres
                 PGPASSWORD=p@ssw0rd42
-                PGPORT=5432 > .env
+                PGPORT=5432" > .env
 
             }
             
