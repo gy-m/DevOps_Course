@@ -13,8 +13,7 @@ pipeline {
                 
                 echo 'creating .env file'
                 
-                echo "
-                # Host configuration
+                echo "# Host configuration
                 PORT=8080
                 HOST=0.0.0.0
                 NODE_ENV=development
