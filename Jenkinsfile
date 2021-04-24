@@ -13,7 +13,7 @@ pipeline {
                 echo 'Building..'
                 
                 sh 'sudo apt-get install -y nodejs'
-                sh 'sudo apt install npm'
+                sh 'sudo apt install -y npm'
                 sh 'npm install'
                 sh 'npm run initdb'
                 sh 'npm run dev'
