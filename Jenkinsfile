@@ -41,15 +41,15 @@ pipeline {
                         '''
                         
                     }
-                echo 'Creating tar.gz file for artifacts'
-                sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
             }
         }
                 
-        stage('Test') {
+        stage('Tar') {
             
             steps {
-                echo 'Testing..'
+                //echo 'Testing..'
+                echo 'Creating tar.gz file for artifacts'
+                sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
             }
         }
         
