@@ -65,6 +65,7 @@ pipeline {
 
 	        steps {
 	            echo 'Creating tar.gz file for artifacts'
+	            sh 'touch my_archive.tar.gz'
 	            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace/pipeline-ci'
 	            archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
 	        }
