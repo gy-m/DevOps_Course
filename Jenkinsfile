@@ -1,23 +1,14 @@
 pipeline {
-    agent {label "slave_build"}
+    agent {label "slave_ci"}
 
     stages {
-        
-        stage('Downlod_to_BlubStorage') {
-            steps {
-                // TODO - understanding how to do it
-                echo 'Downloding Repository from Jenkins to Blub storage'
-            }
-        }
             
         stage('Build') {
-            
-            // TODO: Create artifacts
+            // Creating env file 
             steps {
                     echo 'Building..'
                     script {
                     
-                        // TODO - to be Fixed (must cereate new VM linux)
                         echo 'creating .env file'
                         sh '''
                         echo "# Host configuration
@@ -43,7 +34,7 @@ pipeline {
         }
         
         stage('Deploy') {
-            
+           // Running the application 
             steps {
                 echo 'Deploying....'
                 
@@ -65,7 +56,7 @@ pipeline {
             }
         }
         stage('Test') {
-            
+            // TODO: Tesing
             steps {
                 echo 'Testing..'
             }
