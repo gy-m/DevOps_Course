@@ -41,7 +41,7 @@ pipeline {
                         '''                
                         echo 'Creating tar.gz file for artifacts'
                         sh 'touch artifact.tar.gz'
-                        sh 'tar --excloud=artifact.tar.gz -zcvf artifact.tar.gz /home/proj_admin/jenkins/workspace/build'
+                        sh 'tar --excloud=artifact.tar.gz -zcvf artifact.tar.gz /home/proj_admin/workspace/pipeline-build'
                             
                         
                     }
