@@ -44,12 +44,10 @@ pipeline {
             }
         }
                 
-        stage('Tar') {
+        stage('Test') {
             
             steps {
-                //echo 'Testing..'
-                echo 'Creating tar.gz file for artifacts'
-                sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
+                echo 'Testing..'
             }
         }
         
@@ -74,6 +72,8 @@ pipeline {
 
     post {
         always {
+            echo 'Creating tar.gz file for artifacts'
+            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
             archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
         }
     }
