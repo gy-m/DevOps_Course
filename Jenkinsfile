@@ -54,7 +54,9 @@ pipeline {
                 sh 'npm install'
                 sh 'npm run initdb'
                 sh 'sudo npm install pm2 -g'                                 // install pm2
-                sh 'pm2 start npm -- run dev'                           // run "npm run dev" as a service in the background using pm2
+                sh 'pm2 start src/index.js'
+                sh 'pm2 save'
+                //sh 'pm2 start npm -- run dev'                           // run "npm run dev" as a service in the background using pm2
                 //sh 'npm run dev'
                 
                 echo 'Finished building process'
