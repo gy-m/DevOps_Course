@@ -72,11 +72,11 @@ pipeline {
                 
             }
         }
-        
-        post {
-            always {
-                archiveArtifacts artifacts: 'artifact.tar.gz', onlyIfSuccessful: true
-            }
-       }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'artifact.tar.gz', onlyIfSuccessful: true
+        }
     }
 }
