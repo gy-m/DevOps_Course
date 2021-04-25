@@ -8,6 +8,7 @@ pipeline {
                 // TODO - understanding how to do it
                 echo 'Downloding Repository from Jenkins to Blub storage'
             }
+        }
             
         stage('Build') {
             
@@ -71,9 +72,11 @@ pipeline {
                 
             }
         }
+        
         post {
             always {
                 archiveArtifacts artifacts: 'artifact.tar.gz', onlyIfSuccessful: true
+            }
        }
     }
 }
