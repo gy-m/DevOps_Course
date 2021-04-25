@@ -26,12 +26,10 @@ pipeline {
                         NODE_ENV=development
                         HOST_URL=http://20.74.41.65:8080
                         COOKIE_ENCRYPT_PWD=superAwesomePasswordStringThatIsAtLeast32CharactersLong!
-
                         # Okta configuration
                         OKTA_ORG_URL=https://dev-19252361.okta.com
                         OKTA_CLIENT_ID=0oakcgiuqSqdOXynT5d6
                         OKTA_CLIENT_SECRET=3QYagrVr4BIOV5Z3Bv1ldnhYfbwWc95a5vaU7cLk
-
                         # Postgres configuration
                         PGHOST=10.0.0.20
                         PGUSERNAME=postgres
@@ -69,13 +67,13 @@ pipeline {
                 echo 'Testing..'
             }
         }
-    
-        stage ('create artifacts') {
-            steps {
-                echo 'Creating tar.gz file for artifacts'
-                sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
-                archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
-            }
+    }
+
+    post {
+        always {
+            echo 'Creating tar.gz file for artifacts'
+            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
+            archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
         }
     }
 }
