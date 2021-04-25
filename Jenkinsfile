@@ -15,7 +15,6 @@ pipeline {
             steps {
                     echo 'Building..'
                     script {
-                        withCredentials([string(credentialsId: 'ok_cli_id', variable: 'clientid'), string(credentialsId: 'ok_sec', variable: 'client_secret')]) {
                     
                         // TODO - to be Fixed (must cereate new VM linux)
                         echo 'creating .env file'
@@ -43,7 +42,7 @@ pipeline {
                         sh 'touch artifact.tar.gz'
                         sh 'tar --excloud=artifact.tar.gz -zcvf artifact.tar.gz /home/nirh237/jenkins/workspace/CI'
                             
-                        }
+                        
                     }
             }
         }
