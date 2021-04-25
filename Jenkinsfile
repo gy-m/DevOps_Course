@@ -38,14 +38,13 @@ pipeline {
                         PGDATABASE=postgres
                         PGPASSWORD=p@ssw0rd42
                         PGPORT=5432" > .env
-                        '''                
-                        echo 'Creating tar.gz file for artifacts'
-                        //sh 'touch artifact.tar.gz'
-                        //sh 'tar --excloud=artifact.tar.gz -zcvf artifact.tar.gz /home/proj_admin/workspace/pipeline-build'
-                        
-                        sh 'tar -zcvf my_archive.tar.gz /home/proj_admin/workspace/pipeline-build'
+                        '''
                         
                     }
+                    echo 'Creating tar.gz file for artifacts'
+                    //sh 'touch artifact.tar.gz'
+                    //sh 'tar --excloud=artifact.tar.gz -zcvf artifact.tar.gz /home/proj_admin/workspace/pipeline-build' 
+                    sh 'tar -zcvf my_archive.tar.gz /home/proj_admin/workspace/pipeline-build'
             }
         }
         
