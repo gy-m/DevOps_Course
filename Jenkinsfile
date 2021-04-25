@@ -43,13 +43,6 @@ pipeline {
                     }
             }
         }
-                
-        stage('Test') {
-            
-            steps {
-                echo 'Testing..'
-            }
-        }
         
         stage('Deploy') {
             
@@ -59,13 +52,19 @@ pipeline {
                 sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
                 sh 'sudo apt-get install -y nodejs'
                 sh 'sudo apt-get install -y build-essential'
-                sh 'sudo apt install -y npm'
+                sh 'cd workspace/pipeline-build'
                 sh 'npm install'
                 sh 'npm run initdb'
                 sh 'npm run dev'
                 
                 echo 'Finished building process'
                 
+            }
+        }
+        stage('Test') {
+            
+            steps {
+                echo 'Testing..'
             }
         }
     }
