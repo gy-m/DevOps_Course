@@ -41,7 +41,8 @@ pipeline {
                         '''
                         
                     }
-
+                echo 'Creating tar.gz file for artifacts'
+                sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
             }
         }
                 
@@ -73,9 +74,6 @@ pipeline {
 
     post {
         always {
-            echo 'Creating tar.gz file for artifacts'
-            //sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace/pipeline-build'
-            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
             archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
         }
     }
