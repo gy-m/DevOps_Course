@@ -72,7 +72,7 @@ pipeline {
     post {
         always {
             echo 'Creating tar.gz file for artifacts'
-            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace'
+            sh 'tar -zcvf /home/proj_admin/my_archive.tar.gz /home/proj_admin/workspace/pipeline-build'
             archiveArtifacts artifacts: 'my_archive.tar.gz', onlyIfSuccessful: true
         }
     }
