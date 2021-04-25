@@ -52,7 +52,7 @@ pipeline {
                 sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
                 sh 'sudo apt-get install -y nodejs'
                 sh 'sudo apt-get install -y build-essential'
-                sh 'cd workspace/pipeline-build'
+                //sh 'cd workspace/pipeline-build'
                 sh 'npm install'
                 sh 'npm run initdb'
                 sh 'npm run dev'
