@@ -22,7 +22,7 @@ pipeline {
                         OKTA_CLIENT_ID=0oakcgiuqSqdOXynT5d6
                         OKTA_CLIENT_SECRET=3QYagrVr4BIOV5Z3Bv1ldnhYfbwWc95a5vaU7cLk
                         # Postgres configuration
-                        PGHOST=20.74.41.90
+                        PGHOST=10.0.0.21
                         PGUSERNAME=postgres
                         PGDATABASE=postgres
                         PGPASSWORD=p@ssw0rd42
