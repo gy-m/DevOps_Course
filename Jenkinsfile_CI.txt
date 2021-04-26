@@ -40,13 +40,13 @@ pipeline {
             }
         }
 
-        stage('Artifacts') {
-            steps {
+    }
+    post {
+            always {
                     echo 'Creating artifacts'
                     sh 'zip -r my_archive.zip /home/proj_admin/workspace/pipeline-ci'
                     echo 'archiving artifacts'
                     archiveArtifacts artifacts: 'my_archive.zip', onlyIfSuccessful: true
             }
     	}
-    }
 }
