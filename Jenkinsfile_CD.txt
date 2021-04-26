@@ -6,7 +6,7 @@ pipeline {
         stage('Download_Artifacts') {
             steps {
                     echo 'Downloading Artifacts..'
-                    wget http://10.0.0.7:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_archive.zip
+                    sh 'wget http://10.0.0.7:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_archive.zip'
                     echo 'Unzip artifacts'
                     // TODO: how to unzip" tar
                     sh 'unzip my_archive.zip'
