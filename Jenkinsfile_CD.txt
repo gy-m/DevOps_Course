@@ -8,11 +8,42 @@ pipeline {
                     echo 'Downloading Artifacts..'
                     sh 'wget http://10.0.0.7:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_archive.zip'
                     echo 'Unzip artifacts'
-                    // TODO: how to unzip" tar
+                    // TODO: understand how to unzip hidden files (.env)
                     sh 'unzip -o my_archive.zip'
             }
         }
         
+
+        stage('Build') {
+            // Creating env file (TODO: I do it in the CD only because when env was created in the ci, it was not unzipped in the deploy slave)
+            steps {
+                    echo 'Building..'
+                    script {
+                    
+                        echo 'creating .env file'
+                        sh '''
+                        echo "# Host configuration
+                        PORT=8080
+                        HOST=0.0.0.0
+                        NODE_ENV=development
+                        HOST_URL=http://20.74.41.74:8080
+                        COOKIE_ENCRYPT_PWD=superAwesomePasswordStringThatIsAtLeast32CharactersLong!
+                        # Okta configuration
+                        OKTA_ORG_URL=https://dev-19252361.okta.com
+                        OKTA_CLIENT_ID=0oakcgiuqSqdOXynT5d6
+                        OKTA_CLIENT_SECRET=3QYagrVr4BIOV5Z3Bv1ldnhYfbwWc95a5vaU7cLk
+                        # Postgres configuration
+                        PGHOST=10.0.0.21
+                        PGUSERNAME=postgres
+                        PGDATABASE=postgres
+                        PGPASSWORD=p@ssw0rd42
+                        PGPORT=5432" > .env
+                        '''
+                        
+                    }
+            }
+        }
+
         stage('Deploy') {
            // Running the application 
             steps {
@@ -34,7 +65,7 @@ pipeline {
               
             }
         }
-  
+ */ 
         stage('Test') {
             // TODO: Tesing
             steps {
