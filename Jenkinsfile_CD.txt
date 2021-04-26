@@ -17,9 +17,10 @@ pipeline {
         stage('Build') {
             // Creating env file (TODO: I do it in the CD only because when env was created in the ci, it was not unzipped in the deploy slave)
             steps {
-                    echo 'Building..'
-                    script {
-                    
+                echo 'Building..'
+                script {
+                    withCredentials([string(credentialsId: 'ok_cli_id', variable: 'clientid'), string(credentialsId: 'ok_sec', variable: 'client_secret')]) {         
+                            
                         echo 'creating .env file'
                         sh '''
                         echo "# Host configuration
@@ -39,9 +40,9 @@ pipeline {
                         PGPASSWORD=p@ssw0rd42
                         PGPORT=5432" > .env
                         '''
-                        
                     }
-            }
+                }
+            }  
         }
 
         stage('Deploy') {
