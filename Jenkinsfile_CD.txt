@@ -31,8 +31,8 @@ pipeline {
                         COOKIE_ENCRYPT_PWD=superAwesomePasswordStringThatIsAtLeast32CharactersLong!
                         # Okta configuration
                         OKTA_ORG_URL=https://dev-19252361.okta.com
-                        OKTA_CLIENT_ID=0oakcgiuqSqdOXynT5d6
-                        OKTA_CLIENT_SECRET=3QYagrVr4BIOV5Z3Bv1ldnhYfbwWc95a5vaU7cLk
+                        OKTA_CLIENT_ID=$clientid
+                        OKTA_CLIENT_SECRET=$client_secret
                         # Postgres configuration
                         PGHOST=10.0.0.21
                         PGUSERNAME=postgres
