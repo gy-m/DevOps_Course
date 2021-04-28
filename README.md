@@ -1,3 +1,17 @@
+## Table of contents
+- [DevOps Course](#DevOps-Course)
+- [Node.js Weight Tracker](#Node.js-Weight-Tracker)
+  - [Install and Configuration](#Install-and-Configuration)
+
+# DevOps Course
+DevOps course consist on "WeightTracker" app (https://github.com/reverentgeek/node-weight-tracker), which used to demonstrate common DevOps tools, such as:
+* Azure Platform
+* Terraform for IaC
+* Jenkins for pipelines creation
+* Ansible for configuration management
+Those tools can be found in the "DevOps_Tools" directory, in addition to a ReadMe file, which elaborate about the usage of the tools.
+
+
 # Node.js Weight Tracker
 
 ![Demo](docs/build-weight-tracker-app-demo.gif)
