@@ -4,12 +4,13 @@
 
 
 # DevOps Course
-DevOps course consist on "WeightTracker" app (https://github.com/reverentgeek/node-weight-tracker), which used to demonstrate common DevOps tools, such as:
-* Azure Platform
-* Terraform for IaC
-* Jenkins for pipelines creation
-* Ansible for configuration management
-Those tools can be found in the "DevOps_Tools" directory, in addition to a ReadMe file, which elaborate about the usage of the tools.
+* DevOps course consist on "WeightTracker" app (https://github.com/reverentgeek/node-weight-tracker), which used to demonstrate common DevOps tools, such as:
+	* Azure Platform
+	* Terraform for IaC
+	* Jenkins for pipelines creation
+	* Ansible for configuration management
+* Those tools can be found in the "DevOps_Tools" directory, in addition to a ReadMe files, which elaborate about the usage of the tools.
+* The repository of "WeightTracker" app was copied to this repository for gaining the ability to edit and add DevOps essential files (such as "Jenkinsfile"). 
 
 
 # Node.js Weight Tracker
@@ -34,11 +35,11 @@ This sample application demonstrates the following technologies.
 ## Install and Configuration
 
 1. Clone or download source files
-1. Run `npm install` to install dependencies
-1. If you don't already have PostgreSQL, set up using Docker
-1. Create a [free Okta developer account](https://developer.okta.com/) and add a web application for this app
-1. Copy `.env.sample` to `.env` and change the `OKTA_*` values to your application
-1. Initialize the PostgreSQL database by running `npm run initdb`
-1. Run `npm run dev` to start Node.js
+2. Run `npm install` to install dependencies
+3. If you don't already have PostgreSQL, set up using Docker
+4. Create a [free Okta developer account](https://developer.okta.com/) and add a web application for this app
+5. Copy `.env.sample` to `.env` and change the `OKTA_*` values to your application
+6. Initialize the PostgreSQL database by running `npm run initdb`
+7. Run `npm run dev` to start Node.js
 
 The associated blog post goes into more detail on how to set up PostgreSQL with Docker and how to configure your Okta account.
