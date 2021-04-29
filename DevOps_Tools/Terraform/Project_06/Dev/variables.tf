@@ -5,8 +5,8 @@ General Variables
 */
 variable "location" {
     type = string
-    # default = "Germany West Central"
-    default = "France Central"  
+    default = "Germany West Central"
+  
 }
 
 /*
@@ -15,19 +15,14 @@ VM Variables
 ######################################
 */
 
-variable "vm_name_windows_public" {
+variable "vm_name_windows" {
     type = list(string)
-    default = ["VM-JenkMaster"]
+    default = ["VM-APP-01", "VM-APP-02", "VM-APP-03"]
 }
 
-variable "vm_name_linux_public" {
+variable "vm_name_linux" {
     type = list(string)
-    default = ["VM-JenkBuild", "VM-JenkDeploy"]
-}
-
-variable "vm_name_linux_private" {
-    type = list(string)
-    default = ["VM-DB"]
+    default = ["VM-DB-01", "VM-DB-02", "VM-DB-03"]
 }
 
 /*
