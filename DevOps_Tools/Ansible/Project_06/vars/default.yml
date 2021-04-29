@@ -1,0 +1,12 @@
+---
+clientid= 
+client_secret=
+---
+create_containers: 1
+default_container_name: docker
+default_container_image: ubuntu
+default_container_command: > 
+  sudo docker pull postgres:latest && 
+  sudo docker run -d --name measurements -p 5432:5432 -e 'POSTGRES_PASSWORD=p@ssw0rd42' postgres && 
+  docker ps -aqf "db_container_id=measurements" &&
+  sudo docker container update --restart unless-stopped "$db_container_id"

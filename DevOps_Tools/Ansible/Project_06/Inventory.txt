@@ -1,0 +1,14 @@
+[staging]
+# TODO: insert 3 app vms and 1 db vm
+00.00.00.00     
+
+
+[production]
+
+
+[app]
+# TODO: insert 3 app vms
+
+
+[db]
+# TODO: insert 1 db vm

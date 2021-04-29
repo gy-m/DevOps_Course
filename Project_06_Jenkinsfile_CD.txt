@@ -1,0 +1,46 @@
+pipeline {
+    agent {label "slave_cd"}
+
+    stages {
+            
+        stage('Download_Artifacts') {
+            steps {
+                    echo 'Downloading Artifacts..'
+                    // TODO: ypdate link
+                    sh 'wget http://10.0.0.7:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_archive.zip'
+                    echo 'Unziping artifacts'
+                    // TODO: understand how to unzip hidden files (.env)
+                    sh 'unzip -o my_archive.zip'
+            }
+        }
+        
+        stage('Deploy') {
+           // Running the application 
+           // TODO: Verify which relative direc
+            steps {
+                echo 'Deploying....'
+                sh 'ansible-playbook --ask-become-pass \DevOps_Tools\Ansible\Project_06\playbook_staging.yml'
+
+                /*
+                sh 'curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -'
+                sh 'sudo apt-get install -y nodejs'
+                sh 'sudo apt-get install -y build-essential'
+                sh 'sudo npm install'
+                sh 'sudo npm run initdb'
+                sh 'sudo npm install pm2 -g'                                
+                sh 'pm2 start -f src/index.js'
+                sh 'pm2 save'
+                */
+                echo 'Finished building process'
+              
+            }
+        }
+  
+        stage('Test') {
+            // TODO: Tesing
+            steps {
+                echo 'Testing..'
+            }
+        }
+    }
+}

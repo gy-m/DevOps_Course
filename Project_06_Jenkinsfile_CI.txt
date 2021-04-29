@@ -1,0 +1,29 @@
+pipeline {
+    agent {label "slave_cicd"}
+
+    stages {
+            
+        stage('Build') {
+            // There is no need to build beacuse nodejs already build program
+            steps {
+                    echo 'Building...'
+            }
+        }
+        
+        stage('Test') {
+            // TODO: Create tests
+            steps {
+                echo 'Testing...'
+            }
+        }
+
+    }
+    post {
+            always {
+                    echo 'Creating artifacts'
+                    sh 'zip -r my_artifacts.zip /home/proj_admin/workspace/pipeline-ci'
+                    echo 'archiving artifacts'
+                    archiveArtifacts artifacts: 'my_artifacts.zip', onlyIfSuccessful: true
+            }
+    	}
+}
