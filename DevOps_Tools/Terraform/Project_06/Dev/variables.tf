@@ -22,7 +22,7 @@ variable "vm_name_windows" {
 }
 
 variable "vm_name_linux" {
-    type = list(string)
+    type = list(string) 
     default = ["VM-DB"]
 }
 
