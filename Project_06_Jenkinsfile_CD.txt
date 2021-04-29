@@ -1,8 +1,14 @@
 pipeline {
-    agent {label "slave_cd"}
+    agent {label "slave_cicd"}
 
     stages {
-            
+
+        stage('clean_ws') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Download_Artifacts') {
             steps {
                     echo 'Downloading Artifacts..'
@@ -14,7 +20,7 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        stage('Deploy_Staging') {
            // Running the application 
            // TODO: Verify which relative direc
             steps {
@@ -31,10 +37,22 @@ pipeline {
                 sh 'pm2 start -f src/index.js'
                 sh 'pm2 save'
                 */
-                echo 'Finished building process'
+                echo 'Finished deploying to staging'
               
             }
         }
+
+
+        stage('Deploy_Production') {
+           // Running the application 
+           // TODO: Build the production yaml
+            steps {
+                echo 'Deploying....'
+                sh 'ansible-playbook --ask-become-pass \DevOps_Tools\Ansible\Project_06\playbook_production.yml'
+                echo 'Finished deploying to production'
+              
+            }
+        }        
   
         stage('Test') {
             // TODO: Tesing

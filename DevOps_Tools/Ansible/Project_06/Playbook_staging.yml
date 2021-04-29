@@ -2,7 +2,7 @@
 hosts: db
 become: yes
 vars_files:
-    - vars/default.yml
+    - vars/staging_default.yml
 tasks:
 
   - name: Install aptitude using apt
@@ -49,11 +49,12 @@ tasks:
     with_sequence: count={{ create_containers }}
 
 
-    ---
+---
+
 hosts: app
 become: yes
 vars_files:
-    - vars/default.yml
+    - vars/staging_default.yml
 tasks:
 
   - name: "Update and upgrade apt package"
