@@ -19,7 +19,7 @@ provider "azurerm" {
 
 module "Resource_Groups" {
   source                  = "../Modules/Resource_Groups"
-  resourse_group_name     = "Project_04"
+  resourse_group_name     = "Project_06"
   resourse_group_location = var.location
 }
 

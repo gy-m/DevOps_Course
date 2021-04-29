@@ -5,7 +5,8 @@ General Variables
 */
 variable "location" {
     type = string
-    default = "Germany West Central"
+    default = "France Central"
+    # default = "Germany West Central"
   
 }
 
