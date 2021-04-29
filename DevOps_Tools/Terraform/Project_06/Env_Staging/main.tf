@@ -12,14 +12,16 @@ terraform {
 
 # provider block - of the plattform and the authentication details
 provider "azurerm" {
-  features {}
+  # subscription_id = "3e4e1494-fbaa-48af-aee4-06a56b9488a6"
+  features {
+  }
 }
 
 ################################# Main #######################################
 
 module "Resource_Groups" {
   source                  = "../Modules/Resource_Groups"
-  resourse_group_name     = "Project_06"
+  resourse_group_name     = "Project_06_Staging"
   resourse_group_location = var.location
 }
 
