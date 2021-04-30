@@ -13,10 +13,10 @@ pipeline {
             steps {
                     echo 'Downloading Artifacts..'
                     // TODO: ypdate link
-                    sh 'wget http://10.0.0.7:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_archive.zip'
+                    sh 'wget http://20.39.232.247:8080/job/pipeline-ci/lastSuccessfulBuild/artifact/my_artifacts.zip'
                     echo 'Unziping artifacts'
                     // TODO: understand how to unzip hidden files (.env)
-                    sh 'unzip -o my_archive.zip'
+                    sh 'unzip -o my_artifacts.zip'
             }
         }
         
