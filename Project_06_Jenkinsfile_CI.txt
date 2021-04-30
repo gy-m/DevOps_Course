@@ -3,13 +3,13 @@ pipeline {
 
     stages {
             
-        
+/*        
         stage('clean_ws') {
             steps {
                 cleanWs()
             }
         }
-
+*/
         stage('Build') {
             // There is no need to build beacuse nodejs already build program
             steps {
@@ -28,7 +28,7 @@ pipeline {
     post {
             always {
                     echo 'Creating artifacts'
-                    sh 'zip -r my_artifacts.zip /home/jenkSlave/workspace/pipeline-ci'
+                    sh 'zip -r my_artifacts.zip . -i /home/jenkSlave/workspace/pipeline-ci'
                     echo 'archiving artifacts'
                     archiveArtifacts artifacts: 'my_artifacts.zip', onlyIfSuccessful: true
             }
