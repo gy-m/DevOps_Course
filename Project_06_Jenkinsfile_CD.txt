@@ -25,7 +25,7 @@ pipeline {
            // TODO: Verify which relative direc
             steps {
                 echo 'Deploying....'
-                sh 'ansible-playbook --ask-become-pass /DevOps_Tools/Ansible/Project_06/playbook_staging.yml'
+                sh 'ansible-playbook --ask-become-pass //DevOps_Tools//Ansible//Project_06//playbook_staging.yml'
 
                 /*
                 sh 'curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -'
