@@ -28,7 +28,7 @@ pipeline {
     post {
             always {
                     echo 'Creating artifacts'
-                    sh 'zip -r my_artifacts.zip . -i /home/jenkSlave/workspace/pipeline-ci'
+                    sh 'zip -r my_artifacts.zip workspace/pipeline-ci'
                     echo 'archiving artifacts'
                     archiveArtifacts artifacts: 'my_artifacts.zip', onlyIfSuccessful: true
             }
