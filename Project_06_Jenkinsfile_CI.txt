@@ -3,13 +3,13 @@ pipeline {
 
     stages {
             
-/*        
+        
         stage('clean_ws') {
             steps {
                 cleanWs()
             }
         }
-*/
+
         stage('Build') {
             // There is no need to build beacuse nodejs already build program
             steps {
