@@ -48,7 +48,7 @@ pipeline {
            // TODO: Build the production yaml
             steps {
                 echo 'Deploying....'
-                sh 'ansible-playbook --ask-become-pass \DevOps_Tools\Ansible\Project_06\playbook_production.yml'
+                sh 'ansible-playbook --ask-become-pass \\DevOps_Tools\\Ansible\\Project_06\\playbook_production.yml'
                 echo 'Finished deploying to production'
               
             }
