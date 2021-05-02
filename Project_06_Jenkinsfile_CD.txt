@@ -27,8 +27,9 @@ pipeline {
                 echo 'Deploying....'
                 echo 'Debig:'
                 sh 'pwd'
-                sh 'ansible-playbook --ask-become-pass .//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//playbook_staging.yml'
-                // sh 'ansible-playbook --ask-become-pass .//DevOps_Tools//Ansible//Project_06//playbook_staging.yml'
+                // sh 'ansible-playbook --ask-become-pass ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
+                 sh 'ansible-playbook --ask-become-pass .//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
+                // sh 'ansible-playbook --ask-become-pass .//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
 
                 /*
                 sh 'curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -'
