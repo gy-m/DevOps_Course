@@ -36,8 +36,8 @@ module "network_type_01" {
   load_balancer_middle_name    = "LB_Middle"
 }
 
-module "vm_windows_public" {
-  source                  = "../Modules/VMs/vm_windows_public"
+module "vm_linux_public" {
+  source                  = "../Modules/VMs/vm_linux_public"
   resourse_group_name     = module.Resource_Groups.resourse_group_name
   location                = var.location
   vm_name                 = var.vm_name_windows
@@ -47,14 +47,12 @@ module "vm_windows_public" {
   subnet_public_id        = module.network_type_01.subnet_public_id  
 }
 
-module "associate_loadBalancer_nic_windows" {
-  for_each                  = toset(var.vm_name_windows)
-  source                    = "../Modules/Logic/associate_loadBalancer_nic_windows"
-  resourse_group_name       = module.Resource_Groups.resourse_group_name
-  location                  = var.location
-  nic_id                    = (module.vm_windows_public.nic_resource)[each.value].id
-  nic_ip_config_name        = (module.vm_windows_public.nic_resource)[each.value].ip_configuration[0].name
-  back_end_address_pool_id  = module.network_type_01.back_end_address_pool_lb_gw_id
+module "associate_loadBalancer_nic_linux" {
+  for_each                    = toset(var.vm_name_linux)
+  source                      = "../Modules/Logic/associate_loadBalancer_nic_linux"
+  resourse_group_name         = module.Resource_Groups.resourse_group_name
+  location                    = var.location
+  frontEnd_address_public_id  = module.network_type_01.back_end_address_pool_lb_gw_id
 }
 
 
@@ -70,9 +68,9 @@ module "vm_linux_private" {
 }
 
 
-module "associate_loadBalancer_nic_linux" {
+module "associate_loadBalancer_nic_linux_db" {
   for_each                    = toset(var.vm_name_linux)
-  source                      = "../Modules/Logic/associate_loadBalancer_nic_linux"
+  source                      = "../Modules/Logic/associate_loadBalancer_nic_linux_db"
   resourse_group_name         = module.Resource_Groups.resourse_group_name
   location                    = var.location
   nic_id                      = (module.vm_linux_private.nic_resource)[each.value].id
