@@ -49,8 +49,6 @@
     with_sequence: count={{ create_containers }}
 
 
----
-
 - hosts: app
   become: yes
   vars_files:
