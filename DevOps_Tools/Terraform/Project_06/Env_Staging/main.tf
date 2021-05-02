@@ -35,7 +35,7 @@ module "network_type_01" {
   load_balancer_gw_name        = "LB_GW"
   load_balancer_middle_name    = "LB_Middle"
 }
-
+ 
 module "vm_windows_public" {
   source                  = "../Modules/VMs/vm_windows_public"
   resourse_group_name     = module.Resource_Groups.resourse_group_name
