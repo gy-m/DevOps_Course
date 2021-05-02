@@ -1,7 +1,6 @@
 ---
-clientid= 
-client_secret=
----
+clientid: 0oakcgiuqSqdOXynT5d6
+client_secret: 3QYagrVr4BIOV5Z3Bv1ldnhYfbwWc95a5vaU7cLk
 create_containers: 1
 default_container_name: docker
 default_container_image: ubuntu
