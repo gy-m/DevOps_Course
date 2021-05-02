@@ -35,9 +35,9 @@ module "network_type_01" {
   load_balancer_gw_name        = "LB_GW"
   load_balancer_middle_name    = "LB_Middle"
 }
-
-module "vm_linux_public" {
-  source                  = "../Modules/VMs/vm_linux_public"
+ 
+module "vm_windows_public" {
+  source                  = "../Modules/VMs/vm_windows_public"
   resourse_group_name     = module.Resource_Groups.resourse_group_name
   location                = var.location
   vm_name                 = var.vm_name_windows
@@ -68,9 +68,9 @@ module "vm_linux_private" {
 }
 
 
-module "associate_loadBalancer_nic_linux_db" {
+module "associate_loadBalancer_nic_linux" {
   for_each                    = toset(var.vm_name_linux)
-  source                      = "../Modules/Logic/associate_loadBalancer_nic_linux_db"
+  source                      = "../Modules/Logic/associate_loadBalancer_nic_linux"
   resourse_group_name         = module.Resource_Groups.resourse_group_name
   location                    = var.location
   nic_id                      = (module.vm_linux_private.nic_resource)[each.value].id
