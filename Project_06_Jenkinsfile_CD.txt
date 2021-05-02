@@ -2,13 +2,13 @@ pipeline {
     agent {label "slave-cicd-ansible"}
 
     stages {
-
+/*
         stage('clean_ws') {
             steps {
                 cleanWs()
             }
         }
-
+*/
         stage('Download_Artifacts') {
             steps {
                     echo 'Downloading Artifacts..'
