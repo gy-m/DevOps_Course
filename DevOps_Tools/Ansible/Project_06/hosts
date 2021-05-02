@@ -15,10 +15,3 @@
 [db]
 10.0.0.4
 
-[app:vars]
-ansible_user=proj_admin
-ansible_password=myAPPPass111!
-
-[db:vars]
-ansible_user=proj_admin
-ansible_password=myDBPass111!
