@@ -24,12 +24,8 @@ pipeline {
            // Running the application 
            // TODO: Verify which relative direc
             steps {
-                echo 'Deploying....'
-                echo 'Debig:'
-                sh 'pwd'
+                echo 'Deploying to stating....'
                 sh 'ansible-playbook --ask-become-pass ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
-                // sh 'ansible-playbook --ask-become-pass .//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
-                // sh 'ansible-playbook --ask-become-pass .//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
 
                 /*
                 sh 'curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -'
@@ -46,17 +42,18 @@ pipeline {
             }
         }
 
-
+/*
+        // Note: there is no need to run this state without prodcution enviroment in azure
         stage('Deploy_Production') {
            // Running the application 
-           // TODO: Build the production yaml
+           // TODO: make sure Playbook_production.yml is valid as Playbook_staging.yml
             steps {
-                echo 'Deploying....'
-                sh 'ansible-playbook --ask-become-pass \\DevOps_Tools\\Ansible\\Project_06\\playbook_production.yml'
-                echo 'Finished deploying to production'
-              
+                echo 'Deploying to production....'
+                sh 'ansible-playbook --ask-become-pass ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_production.yml'
+                echo 'Finished deploying to production'            
             }
-        }        
+        }
+*/
   
         stage('Test') {
             // TODO: Tesing
