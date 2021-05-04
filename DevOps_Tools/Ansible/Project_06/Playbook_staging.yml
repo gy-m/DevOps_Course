@@ -89,8 +89,6 @@
 
   - name: install pm2
     shell: npm install pm2 -g
-    args:
-      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
 
   - name: install node dependecies
     shell: npm install
