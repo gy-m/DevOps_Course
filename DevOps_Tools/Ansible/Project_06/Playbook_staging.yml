@@ -93,7 +93,7 @@
   - name: install node dependecies
     shell: npm install
     args:
-      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
+      chdir: "~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/"
 
   - name: initialize db
     shell: npm run initdb
