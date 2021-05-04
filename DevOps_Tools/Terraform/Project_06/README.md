@@ -17,7 +17,7 @@ This project is identical to Project 05, except the usage of Ansible for deployi
 ## Topology
 
 <br><kbd>
-  <img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://github.com/gy-m/DevOps/blob/main/Terraform/Project_05/Documentation/Topology.svg">
+  <img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://raw.githubusercontent.com/gy-m/DevOps_Course/651cdbbc21d1795358ac830ba1d4f573f4d3474a/DevOps_Tools/Terraform/Project_06/Documentation/Topology.svg">
 </kbd><br>
 
 
@@ -27,7 +27,7 @@ The environments will be "Staging" and "Production", thus there are 2 main folde
 2. Env_Production
 For every environment to be build, there is a need to run terraform inside every one of them. The only differenct is the resourse group name ("PRoject_06_Staging" for the staging environment, and "Project_06_Production" for the production environment)
 
-<img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://github.com/gy-m/DevOps/blob/main/Terraform/Project_05/Documentation/Architecture.jpeg">
+<img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://raw.githubusercontent.com/gy-m/DevOps_Course/main/DevOps_Tools/Terraform/Project_06/Documentation/Architecture.jpeg">
 </kbd><br>
 
 
