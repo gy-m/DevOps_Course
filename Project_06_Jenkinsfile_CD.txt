@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo 'Deploying to stating....'
                 sh 'cp ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//ansible.cfg ~'
+                sh 'cp ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//hosts ~'
                 sh 'ansible-playbook --ask-become-pass ~//workspace//pipeline-cd//home//JenkSlave//workspace//pipeline-ci//DevOps_Tools//Ansible//Project_06//Playbook_staging.yml'
 
                 /*
