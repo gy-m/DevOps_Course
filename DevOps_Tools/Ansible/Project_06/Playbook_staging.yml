@@ -92,13 +92,11 @@
 
   - name: install node dependecies
     shell: npm install
-    args:
-      chdir: node-weight-tracker/
+
 
   - name: initialize db
     shell: npm run initdb
-    args:
-      chdir: node-weight-tracker/
+
 
   - name: clear process
     shell: pm2 delete all
@@ -106,8 +104,7 @@
 
   - name: run application
     shell: pm2 start npm -- run dev && pm2 save && pm2 startup
-    args:
-      chdir: node-weight-tracker/
+
 
   # - name: "installing dependencies and running the app"
   #   shell: |
@@ -121,7 +118,7 @@
   # TODO: update PGHOST and HOST_URL with variables, after ensuring hardcode works
   - name: "create .env file"
     copy:
-      dest: "node-weight-tracker/.env"    
+      dest: ".env"    
       content: |
         # Host configuration
         PORT=8080
