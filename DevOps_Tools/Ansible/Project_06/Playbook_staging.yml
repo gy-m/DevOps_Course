@@ -83,7 +83,7 @@
     shell: curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 
   - name: "installing dependencies and running the app"
-    shell: >
+    shell: |
       sh 'sudo npm install'
       sh 'sudo npm run initdb'
       sh 'sudo npm install pm2 -g'                                 // install pm2
