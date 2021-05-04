@@ -87,19 +87,43 @@
   - name: "update noodejs version"
     shell: curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 
-  - name: "installing dependencies and running the app"
-    shell: |
-      sudo npm install
-      sudo npm run initdb
-      sudo npm install pm2 -g                                // install pm2
-      pm2 start -f src/index.js
-      pm2 save
+  - name: install pm2
+    shell: npm install pm2 -g
+    args:
+      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
+
+  - name: install node dependecies
+    shell: npm install
+    args:
+      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
+
+  - name: initialize db
+    shell: npm run initdb
+    args:
+      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
+
+  - name: clear process
+    shell: pm2 delete all
+    ignore_errors: yes
+
+  - name: run application
+    shell: pm2 start npm -- run dev && pm2 save && pm2 startup
+    args:
+      chdir: ~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/
+
+  # - name: "installing dependencies and running the app"
+  #   shell: |
+  #     sudo npm install
+  #     sudo npm run initdb
+  #     sudo npm install pm2 -g                                // install pm2
+  #     pm2 start -f src/index.js
+  #     pm2 save
 
 
   # TODO: update PGHOST and HOST_URL with variables, after ensuring hardcode works
   - name: "create .env file"
     copy:
-      dest: ".env"    
+      dest: "~/workspace/pipeline-cd/home/JenkSlave/workspace/pipeline-ci/.env"    
       content: |
         # Host configuration
         PORT=8080
