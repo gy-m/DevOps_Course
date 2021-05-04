@@ -11,7 +11,9 @@
 
 ## Project Overview
 This project is identical to Project 05, except the usage of Ansible for deploying the app and configurations of VM-APP servers and the VM-DB server.
-In addition, this project consist of the topology which is built using terraform (Terraform/Project_06).
+Notes:
+* This project consist of the topology which is built using terraform (Terraform/Project_06).
+* The JenkinsFiles of this project can be found in the root path.
 
 
 ## Topology
