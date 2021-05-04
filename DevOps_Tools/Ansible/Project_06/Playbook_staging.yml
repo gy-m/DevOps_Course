@@ -93,9 +93,9 @@
   - name: install node dependecies
     shell: npm install
 
-
-  - name: initialize db
-    shell: npm run initdb
+  # TODO: Uncomment after fixing the db play
+  # - name: initialize db
+  #   shell: npm run initdb
 
 
   - name: clear process
