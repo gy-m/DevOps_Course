@@ -4,34 +4,40 @@
   - [Table of contents](#table-of-contents)
   - [Project Overview](#project-overview)
   - [Topology](#Topology)
+  - [Environments](#Environments)
   - [Known issues](#known-issues)
   - [Cleanup (Todos)](#Cleanup-(Todos))
   - [Project's status](#projects-status)
 
 
 ## Project Overview
-TBD
+This project is identical to Project 05, except the usage of Ansible for deploying the app and configurations of VM-APP servers and the VM-DB server.
 
 
 ## Topology
-TBD
 
-<!-- <br><kbd>
+<br><kbd>
   <img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://github.com/gy-m/DevOps/blob/main/Terraform/Project_05/Documentation/Topology.svg">
-</kbd><br> -->
+</kbd><br>
+
+
+## Environments
+The environments will be "Staging" and "Production", thus there are 2 main folders, which both of them using "Modules" folder:
+1. Env_Staging
+2. Env_Production
+For every environment to be build, there is a need to run terraform inside every one of them. The only differenct is the resourse group name ("PRoject_06_Staging" for the staging environment, and "Project_06_Production" for the production environment)
+
+<img style="display: block;margin-left: auto;margin-right: auto; width: 50%; height: 50%;" src="https://github.com/gy-m/DevOps/blob/main/Terraform/Project_05/Documentation/Architecture.jpeg">
+</kbd><br>
 
 
 ## Known Issues
-TODO: Should be updated
-
-Was not found a way to add "Target" association, in the "Inbound NAT rules" of both of the LoadBalancers. Therefore, this must be done manually:
-1. LB GW - Navigate to "Inbound NAT rules" and edit the existing rule, so the "Target" Will be "VM-APP-01"
-1. LB Middle - Navigate to "Inbound NAT rules" and edit the existing rule, so the "Target" Will be "VM-DB-01"
+Because this is an Ansible project, the issues will be in the Readme file under "Ansible/Project_06" folder
 
 
 ## Cleanup (Todos)
-TBD
+Please refer to the Readme file under "Ansible/Project_06" folder
 
 
 ## Project's status
-In progress
+Readme file under "Ansible/Project_06" folder
